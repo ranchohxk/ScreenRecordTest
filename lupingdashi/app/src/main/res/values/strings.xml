@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">录屏专家</string>
+
+
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="main_page">主页</string>
+    <string name="video_page">视频</string>
+    <string name="find_page">发现</string>
+    <string name="other_page">其他</string>
+    <string name="heng_ping">横屏录制</string>
+    <string name="shu_ping">竖屏录制</string>
+</resources>
