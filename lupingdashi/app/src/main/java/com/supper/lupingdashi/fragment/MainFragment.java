@@ -132,7 +132,6 @@ public class MainFragment extends Fragment {
             mRecordService.setMediaProject(mMediaProjection);
             simulateHome();//退出当前界面，模拟home
             mRecordService.startRecord();//开始录屏
-
         }
     }
 
@@ -146,7 +145,6 @@ public class MainFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-
         return inflater.inflate(R.layout.fragment_main, container, false);
     }
 
@@ -154,9 +152,6 @@ public class MainFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        // initFloatWindow();
-
-
     }
 
     @Override
@@ -166,9 +161,7 @@ public class MainFragment extends Fragment {
 
     @Override
     public void onStart() {
-
         super.onStart();
-
     }
 
     @Override
