@@ -37,6 +37,7 @@ set(THREADS_PREFER_PTHREAD_FLAG ON)
 find_package(Threads REQUIRED)
 
 target_link_libraries( native-lib
+                       log
                        avcodec-57_lib
                        avformat-57_lib
                        avutil-55_lib

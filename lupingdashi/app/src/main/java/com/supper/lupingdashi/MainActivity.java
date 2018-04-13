@@ -33,10 +33,7 @@ public class MainActivity extends AppCompatActivity implements VideoFragment.OnF
     private static final int AUDIO_REQUEST_CODE = 11;
 
 
-    // Used to load the 'native-lib' library on application startup.
-    static {
-        System.loadLibrary("native-lib");
-    }
+
 
     public BottomTabBar mBottomTabBar;
     private String TAG = "MainActivity";

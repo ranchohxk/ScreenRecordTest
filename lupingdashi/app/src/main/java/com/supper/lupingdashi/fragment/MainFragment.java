@@ -22,6 +22,7 @@ import com.supper.lupingdashi.MainActivity;
 import com.supper.lupingdashi.R;
 import com.supper.lupingdashi.activity.RecoredApplication;
 import com.supper.lupingdashi.service.VideoRecordService;
+import com.supper.lupingdashi.utils.AVContrl;
 import com.yhao.floatwindow.FloatWindow;
 import com.yhao.floatwindow.Screen;
 
@@ -75,6 +76,7 @@ public class MainFragment extends Fragment {
 
     @Override
     public void onActivityCreated(Bundle savedInstanceState) {
+
         super.onActivityCreated(savedInstanceState);
         mProjectionManager = (MediaProjectionManager) getActivity().getSystemService(MEDIA_PROJECTION_SERVICE);
         hengpBt = getActivity().findViewById(R.id.hengping);
@@ -105,6 +107,10 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "开始录屏!\n");
+                //test 拉通native与上层消息机制
+//                AVContrl av = new AVContrl();
+//                av.initAVContrl();
+//                av.montageVideo(1,1);
                 Intent intent = new Intent(getActivity(), VideoRecordService.class);
                 misBound = getActivity().bindService(intent, connection, BIND_AUTO_CREATE);
                 Intent captureIntent = mProjectionManager.createScreenCaptureIntent();
