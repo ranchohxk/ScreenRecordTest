@@ -7,6 +7,7 @@ include_directories(
 add_library( native-lib
              SHARED
              src/main/cpp/native-lib.cpp
+              src/main/cpp/FileCut.cpp
             )
 
 add_library(avcodec-57_lib SHARED IMPORTED)

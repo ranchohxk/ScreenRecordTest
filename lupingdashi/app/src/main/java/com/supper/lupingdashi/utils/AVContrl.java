@@ -78,8 +78,8 @@ public class AVContrl {
      *
      * @param inputfilepath
      * @param outputfilepath
-     * @param startTime      s
-     * @param endTime        s
+     * @param startTime      MICROSECONDS
+     * @param endTime        MICROSECONDS
      */
     public native int montageVideo(String inputfilepath, String outputfilepath, int startTime, int endTime);
 }
