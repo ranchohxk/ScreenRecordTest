@@ -110,7 +110,7 @@ public class MainFragment extends Fragment {
                 //test 拉通native与上层消息机制
 //                AVContrl av = new AVContrl();
 //                av.initAVContrl();
-//                av.montageVideo(1,1);
+//                av.montageVideo("1", "1", 1, 1);
                 Intent intent = new Intent(getActivity(), VideoRecordService.class);
                 misBound = getActivity().bindService(intent, connection, BIND_AUTO_CREATE);
                 Intent captureIntent = mProjectionManager.createScreenCaptureIntent();

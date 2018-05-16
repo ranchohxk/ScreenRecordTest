@@ -1,8 +1,11 @@
-/**
- *视频文件剪辑
- * Created by hxk on 2018/5/15.
- * use code not // ./ffmpeg -i test.mp4 -ss 00:00:50.0 -codec copy -t 20 output.mp4
-*/
+/**************************************************************************
+ * 作    者：	hxk
+ * 版    本：	1.0
+ * 生成日期：
+ * 功能描述：视频文件剪辑
+ * 其    他: 代码实现，不用命令行实现 // ./ffmpeg -i test.mp4 -ss 00:00:50.0 -codec copy -t 20 output.mp4
+ * 历    史:
+ **************************************************************************/
 
 #include "FileCut.h"
 
@@ -19,7 +22,21 @@ int initFFmpeg() {
     avformat_network_init();
 }
 
+struct Cut cut;
+MessageQueue msg_queue;
+
+int FileCut::initFileCut(char *inputPath, char *outputPath, int startTime, int endTime) {
+    msg_queue_init(&msg_queue);
+    cut.inputPath = inputPath;
+    cut.outputPath = outputPath;
+    cut.startTime = startTime;
+    cut.endTime = endTime;
+    cut.msg_queue = msg_queue;
+    return 0;
+}
+
 int FileCut::cutFile(char *inputPath, char *outputPath, int startTime, int endTime) {
+    //initFileCut(inputPath, outputPath, startTime, endTime);
     int videdoIndex = -1;
     int audioIndex = -1;
     initFFmpeg();
@@ -42,8 +59,13 @@ int FileCut::cutFile(char *inputPath, char *outputPath, int startTime, int endTi
         }
         if (videdoIndex == -1 && audioIndex == -1) {
             LOGE(" Didn't find a video and audio stream.\n");
-            return -1;
+            goto Error;
         }
     }
+    //  msg_queue_put_simple1(&cut.msg_queue, CUTFILE_MSG_SUCESS);
     return 1;
+    Error:
+    //  msg_queue_put_simple1(&cut.msg_queue, CUTFILE_MSG_ERROR);
+    //close
+    return -1;
 }

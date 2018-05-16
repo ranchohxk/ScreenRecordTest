@@ -18,7 +18,6 @@ public class AVContrl {
     private static final int MONTAGE_Video_FAILED = 102;
 
     public void initAVContrl() {
-
         System.loadLibrary("native-lib");
         Looper looper;
         if ((looper = Looper.myLooper()) != null) {
@@ -73,13 +72,14 @@ public class AVContrl {
     }
 
     /*******************native-method**********************************/
+
     /**
      * 剪辑视频
      *
-     * @param inputfilepath
-     * @param outputfilepath
-     * @param startTime      MICROSECONDS
-     * @param endTime        MICROSECONDS
+     * @param inputfilepath  输入文件路径
+     * @param outputfilepath 输出文件路径
+     * @param startTime      秒
+     * @param endTime        秒
      */
     public native int montageVideo(String inputfilepath, String outputfilepath, int startTime, int endTime);
 }
