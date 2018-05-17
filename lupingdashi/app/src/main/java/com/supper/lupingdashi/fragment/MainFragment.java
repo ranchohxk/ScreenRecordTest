@@ -26,6 +26,8 @@ import com.supper.lupingdashi.utils.AVContrl;
 import com.yhao.floatwindow.FloatWindow;
 import com.yhao.floatwindow.Screen;
 
+import java.io.File;
+
 import static android.app.Activity.RESULT_OK;
 import static android.content.Context.BIND_AUTO_CREATE;
 import static android.content.Context.MEDIA_PROJECTION_SERVICE;
@@ -107,10 +109,10 @@ public class MainFragment extends Fragment {
             @Override
             public void onClick(View v) {
                 Log.d(TAG, "开始录屏!\n");
-                //test 拉通native与上层消息机制
+                //test 拉通native与上层消息机制;文件裁剪测试
 //                AVContrl av = new AVContrl();
 //                av.initAVContrl();
-//                av.montageVideo("1", "1", 1, 1);
+//                av.montageVideo("/mnt/sdcard/test.flv", "/mnt/sdcard/out.flv", 1, 1);
                 Intent intent = new Intent(getActivity(), VideoRecordService.class);
                 misBound = getActivity().bindService(intent, connection, BIND_AUTO_CREATE);
                 Intent captureIntent = mProjectionManager.createScreenCaptureIntent();

@@ -79,7 +79,9 @@ public class AVContrl {
      * @param inputfilepath  输入文件路径
      * @param outputfilepath 输出文件路径
      * @param startTime      秒
-     * @param endTime        秒
+     * @param endTime        秒end
      */
     public native int montageVideo(String inputfilepath, String outputfilepath, int startTime, int endTime);
+
+
 }
